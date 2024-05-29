@@ -34,6 +34,7 @@ const LoginPage: React.FC = () => {
       // Redirigir o realizar alguna acción después de un inicio de sesión exitoso
       // eslint-disable-next-line no-console
       console.log("Inicio de sesión exitoso");
+      router.push("/");
     } catch (err: any) {
       setError(err.message);
     }
