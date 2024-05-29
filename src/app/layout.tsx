@@ -1,7 +1,8 @@
-import "@/src/styles/globals.css";
+import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { Snippet } from "@nextui-org/snippet";
+import { Code } from "@nextui-org/code";
 
 import { Providers } from "./providers";
 
@@ -47,9 +48,13 @@ export default function RootLayout({
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex flex-col	items-center justify-center py-3">
-              <p className="block">Harol Rodriguez R.</p>
-              <p className="block">harol.rodriguez28@gmail.com</p>
+            <footer className="w-full flex flex-col	items-center justify-center py-10">
+              <Snippet hideCopyButton hideSymbol variant="flat">
+                <span>
+                  Harol Rodriguez R.{" "}
+                  <Code color="primary">harol.rodriguez28@gmail.com</Code>
+                </span>
+              </Snippet>
             </footer>
           </div>
         </Providers>
