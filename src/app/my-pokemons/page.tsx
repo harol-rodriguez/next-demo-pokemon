@@ -1,12 +1,20 @@
 // import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { Button } from "@nextui-org/button";
+
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 import { title } from "@/components/primitives";
 import MyPokemonList from "@/components/pokemon/my-pokemon-list";
 
 export default function Home() {
+  // console.log(isAuthenticated())
+  const cookieStore = cookies();
+  const isAuthenticated = cookieStore.get("authToken");
+
+  if (!isAuthenticated) {
+    redirect("/login");
+  }
+
   return (
     <section className="flex flex-col items-center justify-start gap-2">
       <div className="inline-block max-w-lg text-center justify-start">
